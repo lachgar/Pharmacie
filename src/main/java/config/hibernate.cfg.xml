@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/apph?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="entities.Etudiant"/>
-    <mapping class="entities.Filiere"/>
-    <mapping class="entities.Formateur"/>
-    <mapping class="entities.Pharmacien"/>
-    <mapping class="entities.User"/>
-    <mapping class="entities.Matiere"/>
-    <mapping class="entities.Service"/>
-    <mapping class="entities.Employe"/>
-    <mapping class="entities.EmployeService"/>
-    <mapping class="entities.Ville"/>
-  </session-factory>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/apph?zeroDateTimeBehavior=convertToNull</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="entities.Etudiant" />
+		<mapping class="entities.Filiere" />
+		<mapping class="entities.Pharmacien" />
+		<mapping class="entities.User" />
+		<mapping class="entities.Service" />
+		<mapping class="entities.Employe" />
+		<mapping class="entities.EmployeService" />
+		<mapping class="entities.Ville" />
+		<mapping class="entities.Zone" />
+	</session-factory>
 </hibernate-configuration>

@@ -1,26 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package service;
 
-import dao.IDao;
-import entities.Matiere;
 import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import dao.IDao;
+import entities.Zone;
 import util.HibernateUtil;
 
-/**
- *
- * @author Lachgar
- */
-public class MatiereService implements IDao<Matiere> {
+public class ZoneService implements IDao<Zone> {
 
     @Override
-    public boolean create(Matiere o) {
+    public boolean create(Zone o) {
         Session session = null;
         Transaction tx = null;
         try {
@@ -41,7 +34,7 @@ public class MatiereService implements IDao<Matiere> {
     }
 
     @Override
-    public boolean update(Matiere o) {
+    public boolean update(Zone o) {
         Session session = null;
         Transaction tx = null;
         try {
@@ -62,7 +55,7 @@ public class MatiereService implements IDao<Matiere> {
     }
 
     @Override
-    public boolean delete(Matiere o
+    public boolean delete(Zone o
     ) {
         Session session = null;
         Transaction tx = null;
@@ -84,17 +77,17 @@ public class MatiereService implements IDao<Matiere> {
     }
 
     @Override
-    public Matiere findById(int id
+    public Zone findById(int id
     ) {
         Session session = null;
         Transaction tx = null;
-        Matiere matiere = null;
+        Zone zone = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            matiere = (Matiere) session.get(Matiere.class, id);
+            zone = (Zone) session.get(Zone.class, id);
             tx.commit();
-            return matiere;
+            return zone;
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();
@@ -107,15 +100,15 @@ public class MatiereService implements IDao<Matiere> {
     }
 
     @Override
-    public List<Matiere> findAll() {
+    public List<Zone> findAll() {
         Session session = null;
         Transaction tx = null;
-        Matiere matiere = null;
-        List<Matiere> matieres = null;
+        Zone zone = null;
+        List<Zone> zones = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            matieres = session.createQuery("from Matiere").list();
+            zones = session.createQuery("from Zone").list();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
@@ -125,8 +118,9 @@ public class MatiereService implements IDao<Matiere> {
             if(session != null)
                 session.close();
         }
-        return matieres;
+        return zones;
    
     }
 
 }
+

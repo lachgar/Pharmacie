@@ -1,3 +1,7 @@
+<%@page import="service.ZoneService"%>
+<%@page import="entities.Zone"%>
+<%@page import="entities.Ville"%>
+<%@page import="service.VilleService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!doctype html>
@@ -23,19 +27,23 @@
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<h1 class="text-center mb-4">Création de zone</h1>
-				<form>
+				<form action="ZoneController" method="get">
 					<div class="form-group">
 						<label for="zoneName">Nom de la zone</label> <input type="text"
-							class="form-control" id="zoneName">
+							class="form-control" name="zoneName" id="zoneName">
 					</div>
 					<div class="form-group">
 						<label for="city">Ville</label> <select class="form-control"
-							id="city">
-							<option>Paris</option>
-							<option>Lyon</option>
-							<option>Marseille</option>
-							<option>Toulouse</option>
-							<option>Bordeaux</option>
+							id="city" name="city">
+							<%
+							VilleService vs = new VilleService();
+							for (Ville v : vs.findAll()) {
+							%>
+							<option value="<%=v.getId()%>"><%=v.getNom()%></option>
+							<%
+							}
+							%>
+
 						</select>
 					</div>
 					<button type="submit" class="btn btn-primary btn-block">Créer</button>
@@ -55,34 +63,22 @@
 						</tr>
 					</thead>
 					<tbody>
+					<%
+					ZoneService  zs = new ZoneService();
+					   for(Zone zone : zs.findAll()){
+					 %>
 						<tr>
-							<th scope="row">1</th>
-							<td>Zone 1</td>
-							<td>Paris</td>
+							<th scope="row"><%= zone.getId() %></th>
+							<td><%= zone.getNom() %></td>
+							<td><%= zone.getVille().getNom() %></td>
 							<td>
 								<button class="btn btn-danger btn-sm">Supprimer</button>
 								<button class="btn btn-secondary btn-sm">Modifier</button>
 							</td>
 
 						</tr>
-						<tr>
-							<th scope="row">2</th>
-							<td>Zone 2</td>
-							<td>Lyon</td>
-							<td>
-								<button class="btn btn-danger btn-sm">Supprimer</button>
-								<button class="btn btn-secondary btn-sm">Modifier</button>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td>Zone 3</td>
-							<td>Marseille</td>
-							<td>
-								<button class="btn btn-danger btn-sm">Supprimer</button>
-								<button class="btn btn-secondary btn-sm">Modifier</button>
-							</td>
-						</tr>
+					<%} %>
+						
 					</tbody>
 				</table>
 			</div>

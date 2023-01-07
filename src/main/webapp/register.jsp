@@ -23,28 +23,32 @@
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<h1 class="text-center mb-4">Inscription</h1>
-				<form>
+				<form action="PharmacienController" method="POST">
 					<div class="form-group">
 						<label for="firstName">Prénom</label> <input type="text"
-							class="form-control" id="firstName">
+							class="form-control" name="firstName" id="firstName">
 					</div>
 					<div class="form-group">
 						<label for="lastName">Nom</label> <input type="text"
-							class="form-control" id="lastName">
+							class="form-control" name="lastName" id="lastName">
+					</div>
+					<div class="form-group">
+						<label for="telephone">Telephone</label> <input type="text"
+							class="form-control" name="telephone" id="telephone">
 					</div>
 					<div class="form-group">
 						<label for="email">Adresse email</label> <input type="email"
-							class="form-control" id="email" aria-describedby="emailHelp">
+							class="form-control" name="email" id="email" aria-describedby="emailHelp">
 						<small id="emailHelp" class="form-text text-muted">Nous ne
 							partagerons jamais votre adresse email avec qui que ce soit.</small>
 					</div>
 					<div class="form-group">
 						<label for="password">Mot de passe</label> <input type="password"
-							class="form-control" id="password">
+							class="form-control"  name="password" id="password">
 					</div>
 					<div class="form-group">
 						<label for="passwordConfirm">Confirmez votre mot de passe</label>
-						<input type="password" class="form-control" id="passwordConfirm">
+						<input type="password" name="passwordConfirm" class="form-control" id="passwordConfirm">
 					</div>
 					<button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
 				</form>

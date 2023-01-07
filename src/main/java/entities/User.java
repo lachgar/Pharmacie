@@ -23,18 +23,23 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id;
-    protected String nom;
-    protected  String prenom;
+    protected String email;
+    protected  String password;
+    protected int etat;
 
     public User() {
     }
 
-    public User(String nom, String prenom) {
-        this.nom = nom;
-        this.prenom = prenom;
-    }
 
-    public int getId() {
+    public User(String email, String password, int etat) {
+		super();
+		this.email = email;
+		this.password = password;
+		this.etat = etat;
+	}
+
+
+	public int getId() {
         return id;
     }
 
@@ -42,22 +47,37 @@ public class User {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
-    }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public String getPrenom() {
-        return prenom;
-    }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-    
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public int getEtat() {
+		return etat;
+	}
+
+
+	public void setEtat(int etat) {
+		this.etat = etat;
+	}
+
+
     
     
 }
